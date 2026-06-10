@@ -460,23 +460,44 @@ export default function HillClimbGame() {
       {/* Controls */}
       <div style={{ display: "flex", gap: 24, marginTop: 16 }}>
         <button
-          onPointerDown={handleBrakeStart}
-          onPointerUp={handleBrakeEnd}
-          onPointerLeave={handleBrakeEnd}
-          style={{ background: "linear-gradient(135deg, #1e40af, #3b82f6)", color: "#fff", border: "none", borderRadius: 16, padding: "18px 40px", fontSize: 22, fontWeight: 900, cursor: "pointer", boxShadow: "0 4px 20px rgba(59,130,246,0.4)", letterSpacing: 1, minWidth: 130, touchAction: "none" }}
-        >
-          ◀ REM
-        </button>
-        <button
-          onPointerDown={handleGasStart}
-          onPointerUp={handleGasEnd}
-          onPointerLeave={handleGasEnd}
-          style={{ background: "linear-gradient(135deg, #15803d, #22c55e)", color: "#fff", border: "none", borderRadius: 16, padding: "18px 40px", fontSize: 22, fontWeight: 900, cursor: "pointer", boxShadow: "0 4px 20px rgba(34,197,94,0.4)", letterSpacing: 1, minWidth: 130, touchAction: "none" }}
-        >
-          GAS ▶
-        </button>
-      </div>
-      <div style={{ color: "#555", fontSize: 12, marginTop: 8 }}>Atau gunakan ← → di keyboard</div>
-    </div>
-  );
-}
+  onPointerDown={handleBrakeStart}
+  onPointerUp={handleBrakeEnd}
+  onPointerLeave={handleBrakeEnd}
+  onContextMenu={(e) => e.preventDefault()}
+  onTouchStart={(e) => { e.preventDefault(); handleBrakeStart(); }}
+  onTouchEnd={(e) => { e.preventDefault(); handleBrakeEnd(); }}
+  style={{
+    background: "linear-gradient(135deg, #1e40af, #3b82f6)",
+    color: "#fff", border: "none", borderRadius: 16,
+    padding: "18px 40px", fontSize: 22, fontWeight: 900,
+    cursor: "pointer", boxShadow: "0 4px 20px rgba(59,130,246,0.4)",
+    letterSpacing: 1, minWidth: 130,
+    touchAction: "none",
+    WebkitUserSelect: "none",
+    userSelect: "none",
+    WebkitTouchCallout: "none"
+  }}
+>
+  ◀ REM
+</button>
+<button
+  onPointerDown={handleGasStart}
+  onPointerUp={handleGasEnd}
+  onPointerLeave={handleGasEnd}
+  onContextMenu={(e) => e.preventDefault()}
+  onTouchStart={(e) => { e.preventDefault(); handleGasStart(); }}
+  onTouchEnd={(e) => { e.preventDefault(); handleGasEnd(); }}
+  style={{
+    background: "linear-gradient(135deg, #15803d, #22c55e)",
+    color: "#fff", border: "none", borderRadius: 16,
+    padding: "18px 40px", fontSize: 22, fontWeight: 900,
+    cursor: "pointer", boxShadow: "0 4px 20px rgba(34,197,94,0.4)",
+    letterSpacing: 1, minWidth: 130,
+    touchAction: "none",
+    WebkitUserSelect: "none",
+    userSelect: "none",
+    WebkitTouchCallout: "none"
+  }}
+>
+  GAS ▶
+</button>
